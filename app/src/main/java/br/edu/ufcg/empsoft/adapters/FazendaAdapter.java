@@ -35,6 +35,7 @@ public class FazendaAdapter extends RecyclerView.Adapter<FazendaAdapter.ModelVie
 
     @Override
     public void onBindViewHolder(ModelViewHolder holder, int position) {
+        System.out.println(fazendasList.get(0));
         Fazenda fazenda = fazendasList.get(position);
         holder.setName(fazenda.getName());
         holder.setDescription(fazenda.getDescription());
@@ -71,6 +72,11 @@ public class FazendaAdapter extends RecyclerView.Adapter<FazendaAdapter.ModelVie
     }
 
     public void addFazends(List<Fazenda> fazendas) {
+        fazendasList = fazendas;
+        recyclerView.setAdapter(this);
+    }
+
+    public void setFazendasList(List<Fazenda> fazendas) {
         fazendasList = fazendas;
         recyclerView.setAdapter(this);
     }
