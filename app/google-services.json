@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "583317053060",
+    "firebase_url": "https://empsoft-7ed8f.firebaseio.com",
+    "project_id": "empsoft-7ed8f",
+    "storage_bucket": "empsoft-7ed8f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:583317053060:android:45b6ab2f4fa013ee",
+        "android_client_info": {
+          "package_name": "br.edu.ufcg.empsoft"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "583317053060-run3ugo8r09lvmaofadchcqa1a9bf4fr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.edu.ufcg.empsoft",
+            "certificate_hash": "25fd099e097b35f9526202221b803884d0c3674f"
+          }
+        },
+        {
+          "client_id": "583317053060-4ovd97r191e2e524nc47uhimc5ijbf9r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.edu.ufcg.empsoft",
+            "certificate_hash": "6a17f504700dccd64b6ca4db497e469c6a87882f"
+          }
+        },
+        {
+          "client_id": "583317053060-g0t54mtgh9ts6f87e9i2t0kcgptdv2ps.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNxEzaG39gAXfrXCj44xpdNC5qSU-H-FA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "583317053060-g0t54mtgh9ts6f87e9i2t0kcgptdv2ps.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
