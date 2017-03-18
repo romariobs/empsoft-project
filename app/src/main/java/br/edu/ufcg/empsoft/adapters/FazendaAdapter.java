@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -29,7 +30,7 @@ public class FazendaAdapter extends RecyclerView.Adapter<FazendaAdapter.ModelVie
     public ModelViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.
                 from(parent.getContext()).
-                inflate(R.layout.fazenda_viewholder, parent, false);
+                inflate(R.layout.fazenda_cardview, parent, false);
         return new ModelViewHolder(itemView);
     }
 
@@ -50,10 +51,12 @@ public class FazendaAdapter extends RecyclerView.Adapter<FazendaAdapter.ModelVie
     public class ModelViewHolder extends RecyclerView.ViewHolder {
         private TextView mName;
         private TextView mDescription;
+        private ImageView mThumb;
         public ModelViewHolder(View itemView) {
             super(itemView);
-            mName = (TextView) itemView.findViewById(R.id.tvName);
-            mDescription = (TextView) itemView.findViewById(R.id.tvDescription);
+            mName = (TextView) itemView.findViewById(R.id.textViewFarmName);
+            mDescription = (TextView) itemView.findViewById(R.id.textViewFarmDesc);
+            mThumb = (ImageView) itemView.findViewById(R.id.imageViewThumb);
 
         }
 
