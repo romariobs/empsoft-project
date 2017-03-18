@@ -7,6 +7,5 @@
 /captures
 .externalNativeBuild
 *.log
-google-services.json
 *.apk
 *.ap_

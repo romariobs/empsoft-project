@@ -17,9 +17,7 @@ public class Database {
     private static Database instance;
 
     public static enum Table {
-        FAZENDAS("fazendas"), INSUMOS("insumos");
-
-        Table(String insumos) {}
+        FAZENDAS, AGENDAMENTOS
     }
 
     private Database() {
@@ -36,8 +34,10 @@ public class Database {
     private Map<Table, DatabaseReference> initialize_refers() {
         Map<Table, DatabaseReference> refers = new HashMap<>();
 
-        refers.put(Table.FAZENDAS, this.database.getReference(String.valueOf(Table.FAZENDAS)));
-        refers.put(Table.INSUMOS, this.database.getReference(String.valueOf(Table.INSUMOS)));
+        refers.put(Table.FAZENDAS,
+                this.database.getReference(String.valueOf(Table.FAZENDAS)));
+        refers.put(Table.AGENDAMENTOS,
+                this.database.getReference(String.valueOf(Table.AGENDAMENTOS)));
 
         return refers;
     }
@@ -53,9 +53,9 @@ public class Database {
         this.references.get(table).child(key).setValue(fazenda);
     }
 
-//    public void append(Table table, Insumo insumo) {
-//        String key = this.references.get(table).push().getKey();
-//        this.references.get(table).child(key).setValue(insumo);
-//        insumo.setId(key);
-//    }
+    public void append(Table table, Agendamento agendamento) {
+        String key = this.references.get(table).push().getKey();
+        agendamento.setId(key);
+        this.references.get(table).child(key).setValue(agendamento);
+    }
 }
