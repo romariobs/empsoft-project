@@ -1,13 +1,21 @@
 package br.edu.ufcg.empsoft.models;
 
+import java.io.Serializable;
+
 /**
  * Created by stenio on 3/18/2017.
  */
 
-public class Insumo {
+public class Insumo implements Serializable{
     private String nome;
     private int cultivoMedio;
     private int diasCultivados;
+
+    public Insumo() {
+        setNome("");
+        setCultivoMedio(0);
+        setDiasCultivados(0);
+    }
 
     public Insumo(String nome, int cultivoMedio, int diasCultivados) {
         setNome(nome);

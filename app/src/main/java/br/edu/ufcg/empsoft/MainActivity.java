@@ -2,6 +2,8 @@ package br.edu.ufcg.empsoft;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -39,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //toolbar.setBackground(new ColorDrawable(Color.parseColor("#2ecc71")));
         setSupportActionBar(toolbar);
 
         initAdapter();
@@ -59,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recList.setLayoutManager(llm);
-        adapter = new FazendaAdapter(new ArrayList<Fazenda>(), recList);
+        adapter = new FazendaAdapter(new ArrayList<Fazenda>(), recList, this);
         database.addListener(Database.Table.FAZENDAS, new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

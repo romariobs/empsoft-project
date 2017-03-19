@@ -47,6 +47,31 @@ public class Database {
             this.references.get(table).addValueEventListener(listener);
     }
 
+    public void addListener(Table table, Fazenda fazenda, ValueEventListener listener) {
+        if (listener != null)
+            this.references.get(table).child(fazenda.getId()).addValueEventListener(listener);
+    }
+
+    public void addListener(Table table, Agendamento agendamento, ValueEventListener listener) {
+        if (listener != null)
+            this.references.get(table).child(agendamento.getId()).addValueEventListener(listener);
+    }
+
+    public void removeListener(Table table, ValueEventListener listener) {
+        if (listener != null)
+            this.references.get(table).removeEventListener(listener);
+    }
+
+    public void removeListener(Table table, Fazenda fazenda, ValueEventListener listener) {
+        if (listener != null)
+            this.references.get(table).child(fazenda.getId()).removeEventListener(listener);
+    }
+
+    public void removeListener(Table table, Agendamento agendamento, ValueEventListener listener) {
+        if (listener != null)
+            this.references.get(table).child(agendamento.getId()).removeEventListener(listener);
+    }
+
     public void append(Table table, Fazenda fazenda) {
         String key = this.references.get(table).push().getKey();
         fazenda.setId(key);
