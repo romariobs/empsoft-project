@@ -65,7 +65,7 @@ public class Fazenda implements Serializable {
 
     public ArrayList<Insumo> getInsumos() {
         if (insumos == null)
-            return new ArrayList<>();
+            setInsumos(new ArrayList<Insumo>());
         return insumos;
     }
 
