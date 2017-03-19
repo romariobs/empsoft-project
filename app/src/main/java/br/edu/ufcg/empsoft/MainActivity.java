@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        initAdapter();
+        initAdapter(0);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -53,13 +53,13 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void initAdapter() {
+    private void initAdapter(int typeOfView) {
         RecyclerView recList = (RecyclerView) findViewById(R.id.recyclerView);
         recList.setHasFixedSize(true);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recList.setLayoutManager(llm);
-        adapter = new FazendaAdapter(new ArrayList<Fazenda>(), recList);
+        adapter = new FazendaAdapter(new ArrayList<Fazenda>(), recList, typeOfView);
         database.addListener(Database.Table.FAZENDAS, new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -111,8 +111,12 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_cardset) {
+            initAdapter(0);
+
             return true;
+        } else if (id == R.id.action_listset) {
+            initAdapter(1);
         }
 
         return super.onOptionsItemSelected(item);

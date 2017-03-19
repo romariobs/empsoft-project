@@ -15,23 +15,22 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             >
 
             <ImageView
                 android:id="@+id/imageViewThumb"
                 android:tag="image_tag"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:src="@mipmap/ic_launcher"/>
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_weight="2"
+                android:layout_margin="10dp"
                 android:orientation="vertical"
                 >
 
@@ -40,7 +39,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="10dp"
+                    android:layout_margin="10dp"
                     android:text="Nome"
                     android:textAppearance="?android:attr/textAppearanceLarge"/>
 
@@ -49,7 +48,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="10dp"
+                    android:layout_margin="10dp"
 
                     android:text="Descrição"
                     android:textAppearance="?android:attr/textAppearanceMedium"/>
