@@ -7,11 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import br.edu.ufcg.empsoft.FazendaDetalhes;
+import br.edu.ufcg.empsoft.activities.FazendaDetalhes;
 import br.edu.ufcg.empsoft.R;
 import br.edu.ufcg.empsoft.models.Fazenda;
 import br.edu.ufcg.empsoft.models.Insumo;
@@ -41,7 +41,6 @@ public class FazendaAdapter extends RecyclerView.Adapter<FazendaAdapter.ModelVie
 
     @Override
     public void onBindViewHolder(ModelViewHolder holder, int position) {
-        System.out.println(fazendasList.get(0));
         Fazenda fazenda = fazendasList.get(position);
         holder.setName(fazenda.getName());
         holder.setDescription(fazenda.getDescription());
@@ -81,12 +80,14 @@ public class FazendaAdapter extends RecyclerView.Adapter<FazendaAdapter.ModelVie
         public void onClick(View v) {
             int position = getAdapterPosition();
             Fazenda fazenda = this.fazendas.get(position);
+            ArrayList<Insumo> insumos = fazenda.getInsumos();
 
             Intent intent = new Intent(this.context, FazendaDetalhes.class);
             // TODO: FIND A WAY TO STORE AND RETRIEVE FARM IMAGES
             intent.putExtra("name", fazenda.getName());
             intent.putExtra("description", fazenda.getDescription());
             intent.putExtra("localization", fazenda.getLocalization());
+            intent.putExtra("insumos", insumos.toArray(new Insumo[insumos.size()]));
             this.context.startActivity(intent);
         }
     }

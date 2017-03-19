@@ -8,13 +8,15 @@
         android:id="@+id/fazenda"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_margin="20dp">
 
         <ImageView
             android:id="@+id/ivIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher"/>
+            android:src="@mipmap/ic_launcher"
+            android:layout_marginRight="20dp"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,12 +25,14 @@
                 android:id="@+id/tvName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="FAZENDA NAME"/>
+                android:text="FAZENDA NAME"
+                android:textSize="20dp"/>
             <TextView
                 android:id="@+id/tvDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="FAZENDA DESCRIPTION"/>
+                android:text="FAZENDA DESCRIPTION"
+                android:textSize="16dp"/>
 
         </LinearLayout>
 

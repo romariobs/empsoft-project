@@ -1,4 +1,4 @@
-package br.edu.ufcg.empsoft;
+package br.edu.ufcg.empsoft.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,7 +8,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import br.edu.ufcg.empsoft.activities.AgendarVisita;
+import br.edu.ufcg.empsoft.R;
+import br.edu.ufcg.empsoft.models.Insumo;
 
 public class FazendaDetalhes extends AppCompatActivity {
     ImageView imageFazenda;
@@ -44,6 +45,15 @@ public class FazendaDetalhes extends AppCompatActivity {
         });
 
         this.btnCultivo = (Button) findViewById(R.id.btn_cultivos);
+        this.btnCultivo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(FazendaDetalhes.this, DuracaoDeCultivo.class);
+                intent.putExtra("insumos", (Insumo[])getIntent().getExtras().get("insumos"));
+                startActivity(intent);
+
+            }
+        });
 
 
     }
