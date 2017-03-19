@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recList.setLayoutManager(llm);
-        adapter = new FazendaAdapter(new ArrayList<Fazenda>(), recList);
+        adapter = new FazendaAdapter(new ArrayList<Fazenda>(), recList, this);
         database.addListener(Database.Table.FAZENDAS, new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.edu.ufcg.empsoft.FazendaDetalhes"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:id="@+id/image_fazenda"
+        android:src="@android:drawable/ic_menu_camera"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/name_fazenda"
+        android:layout_margin="10dp"
+        android:textSize="20dp"
+        android:text="Este é o nome da fazenda!"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/description_fazenda"
+        android:layout_margin="10dp"
+        android:textSize="18dp"
+        android:text="Este é o endereço da fazenda!"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/localization_fazenda"
+        android:layout_margin="10dp"
+        android:textSize="18dp"
+        android:text="Esta é a descrição da fazenda!"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_margin="20dp">
+
+        <Button
+            android:id="@+id/btn_visita"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="Agendar visita" />
+
+        <Button
+            android:id="@+id/btn_cultivos"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="Cultivos" />
+    </LinearLayout>
+
+</LinearLayout>
