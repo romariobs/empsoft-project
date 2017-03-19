@@ -10,8 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activities.AgendarVisita"
-            android:label="@string/title_activity_agendar_visita"
+            android:name=".MainActivity"
+            android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,12 +19,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
         <activity android:name=".activities.FazendaActivity" />
+        <activity
+            android:name=".activities.FazendaDetalhes"
+            android:label="Minha Fazenda"/>
+        <activity
+            android:name=".activities.AgendarVisita"
+            android:label="@string/title_activity_agendar_visita"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".activities.DuracaoDeCultivo"
+            android:label="Tempo Médio de Cultivo"></activity>
     </application>
 
 </manifest>

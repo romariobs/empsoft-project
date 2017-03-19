@@ -1,8 +1,7 @@
 package br.edu.ufcg.empsoft.models;
 
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
 
 /**
  * Created by romario
@@ -14,13 +13,13 @@ public class Fazenda implements Serializable {
     private String description;
     private String localization;
     private int thumb;
-    private Map<Integer, Insumo> insumos;
+    private ArrayList<Insumo> insumos;
 
     public Fazenda() {
         setName("");
         setDescription("");
         setLocalization("");
-        setInsumos(new HashMap<Integer, Insumo>());
+        setInsumos(new ArrayList<Insumo>());
     }
 
     public Fazenda(String name, String description) {
@@ -30,7 +29,7 @@ public class Fazenda implements Serializable {
     }
 
     public void addInsumo(Insumo insumo) {
-        insumos.put(insumos.size(), insumo);
+        insumos.add(insumo);
     }
 
     public void setId(String id) {
@@ -73,11 +72,13 @@ public class Fazenda implements Serializable {
         this.thumb = thumb;
     }
 
-    public Map<Integer, Insumo> getInsumos() {
+    public ArrayList<Insumo> getInsumos() {
+        if (insumos == null)
+            setInsumos(new ArrayList<Insumo>());
         return insumos;
     }
 
-    public void setInsumos(Map<Integer, Insumo> insumos) {
+    public void setInsumos(ArrayList<Insumo> insumos) {
         this.insumos = insumos;
     }
 }

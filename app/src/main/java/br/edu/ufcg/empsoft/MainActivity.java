@@ -2,6 +2,8 @@ package br.edu.ufcg.empsoft;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -39,9 +41,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //toolbar.setBackground(new ColorDrawable(Color.parseColor("#2ecc71")));
         setSupportActionBar(toolbar);
 
-        initAdapter(0);
+        initAdapter(0); //Default mode card view
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -59,7 +62,8 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recList.setLayoutManager(llm);
-        adapter = new FazendaAdapter(new ArrayList<Fazenda>(), recList, typeOfView);
+
+        adapter = new FazendaAdapter(new ArrayList<Fazenda>(), recList, this, typeOfView);
         database.addListener(Database.Table.FAZENDAS, new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -113,10 +117,10 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_cardset) {
             initAdapter(0);
-
             return true;
         } else if (id == R.id.action_listset) {
             initAdapter(1);
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
