@@ -12,6 +12,7 @@ public class Fazenda implements Serializable {
     private String name;
     private String description;
     private String localization;
+    private int thumb;
     private ArrayList<Insumo> insumos;
 
     public Fazenda() {
@@ -61,6 +62,14 @@ public class Fazenda implements Serializable {
 
     public void setLocalization(String localization) {
         this.localization = localization;
+    }
+
+    public int getThumb() {
+        return thumb;
+    }
+
+    public void setThumb(int thumb) {
+        this.thumb = thumb;
     }
 
     public ArrayList<Insumo> getInsumos() {
