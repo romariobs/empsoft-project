@@ -59,14 +59,14 @@ public class FazendaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 ListViewHolder listViewHolder = (ListViewHolder)holder;
                 listViewHolder.setName(fazenda.getName());
                 listViewHolder.setDescription(fazenda.getDescription());
-                listViewHolder.setThumb(fazenda.getThumb());
+//                listViewHolder.setThumb(fazenda.getThumb());
                 break;
 
             case 0:
                 CardViewHolder cardViewHolder = (CardViewHolder)holder;
                 cardViewHolder.setName(fazenda.getName());
                 cardViewHolder.setDescription(fazenda.getDescription());
-                cardViewHolder.setThumb(fazenda.getThumb());
+//                cardViewHolder.setThumb(fazenda.getThumb());
                 break;
         }
     }

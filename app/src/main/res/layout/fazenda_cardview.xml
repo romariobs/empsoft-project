@@ -2,56 +2,57 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_gravity="center_horizontal"
+    android:layout_height="wrap_content">
     <!-- A CardView that contains a TextView -->
     <android.support.v7.widget.CardView
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/card_view"
-        android:layout_gravity="center"
-        android:layout_width="200dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
         android:layout_height="200dp"
+        android:layout_margin="15dp"
         card_view:cardCornerRadius="4dp">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
             >
 
             <ImageView
                 android:id="@+id/imageViewThumb"
                 android:tag="image_tag"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:src="@mipmap/ic_launcher"/>
+                android:layout_height="125dp"
+                android:src="@mipmap/farm_default"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
                 android:orientation="vertical"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="3"
                 >
 
                 <TextView
                     android:id="@+id/textViewFarmName"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
-                    android:layout_margin="10dp"
                     android:text="Nome"
+                    android:layout_weight="1"
                     android:textAppearance="?android:attr/textAppearanceLarge"/>
 
                 <TextView
                     android:id="@+id/textViewFarmDesc"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
-                    android:layout_margin="10dp"
-
+                    android:layout_weight="2"
                     android:text="Descrição"
-                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+                    android:textAppearance="?android:attr/textAppearance"/>
 
             </LinearLayout>
         </LinearLayout>
