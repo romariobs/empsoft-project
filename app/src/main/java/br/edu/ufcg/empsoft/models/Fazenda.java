@@ -72,7 +72,7 @@ public class Fazenda implements Serializable {
     public void setThumb(int thumb) {
         this.thumb = thumb;
     }
-    
+
     public Map<Integer, Insumo> getInsumos() {
         return insumos;
     }
