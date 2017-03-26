@@ -30,6 +30,9 @@
         <activity
             android:name=".activities.DuracaoDeCultivo"
             android:label="Tempo Médio de Cultivo"></activity>
+        <activity
+            android:name=".activities.POPOptions"
+            android:theme="@style/AppTheme.PopupTheme"></activity>
     </application>
 
 </manifest>

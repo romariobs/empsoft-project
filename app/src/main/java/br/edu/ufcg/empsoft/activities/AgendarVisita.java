@@ -38,6 +38,8 @@ public class AgendarVisita extends AppCompatActivity
 
         handleDatePicker(this);
 
+        setTitle(getIntent().getExtras().getString("Title"));
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);

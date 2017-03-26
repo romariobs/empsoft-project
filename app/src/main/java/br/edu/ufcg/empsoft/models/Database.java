@@ -17,7 +17,7 @@ public class Database {
     private static Database instance;
 
     public static enum Table {
-        FAZENDAS, AGENDAMENTOS
+        FAZENDAS, AGENDAMENTOS, ORDENS_DE_COLHEITA
     }
 
     private Database() {
@@ -38,6 +38,8 @@ public class Database {
                 this.database.getReference(String.valueOf(Table.FAZENDAS)));
         refers.put(Table.AGENDAMENTOS,
                 this.database.getReference(String.valueOf(Table.AGENDAMENTOS)));
+        refers.put(Table.ORDENS_DE_COLHEITA,
+                this.database.getReference(String.valueOf(Table.ORDENS_DE_COLHEITA)));
 
         return refers;
     }
@@ -50,6 +52,11 @@ public class Database {
     public void addListener(Table table, Fazenda fazenda, ValueEventListener listener) {
         if (listener != null)
             this.references.get(table).child(fazenda.getId()).addValueEventListener(listener);
+    }
+
+    public void addListener(Table table, OrdemDeColheita ordem, ValueEventListener listener) {
+        if (listener != null)
+            this.references.get(table).child(ordem.getId()).addValueEventListener(listener);
     }
 
     public void addListener(Table table, Agendamento agendamento, ValueEventListener listener) {
@@ -67,6 +74,11 @@ public class Database {
             this.references.get(table).child(fazenda.getId()).removeEventListener(listener);
     }
 
+    public void removeListener(Table table, OrdemDeColheita ordem, ValueEventListener listener) {
+        if (listener != null)
+            this.references.get(table).child(ordem.getId()).removeEventListener(listener);
+    }
+
     public void removeListener(Table table, Agendamento agendamento, ValueEventListener listener) {
         if (listener != null)
             this.references.get(table).child(agendamento.getId()).removeEventListener(listener);
@@ -76,6 +88,12 @@ public class Database {
         String key = this.references.get(table).push().getKey();
         fazenda.setId(key);
         this.references.get(table).child(key).setValue(fazenda);
+    }
+
+    public void append(Table table, OrdemDeColheita ordem){
+        String key = this.references.get(table).push().getKey();
+        ordem.setId(key);
+        this.references.get(table).child(key).setValue(ordem);
     }
 
     public void append(Table table, Agendamento agendamento) {
