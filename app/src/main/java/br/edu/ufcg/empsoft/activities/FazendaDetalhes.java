@@ -9,13 +9,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import br.edu.ufcg.empsoft.R;
+import br.edu.ufcg.empsoft.models.Database;
 import br.edu.ufcg.empsoft.models.Insumo;
+import br.edu.ufcg.empsoft.models.OrdemDeColheita;
 
 public class FazendaDetalhes extends AppCompatActivity {
-    ImageView imageFazenda;
-    TextView textName, textDescription, textLocalization;
-    Button btnVisita, btnCultivo;
-
+    private ImageView imageFazenda;
+    private TextView textName, textDescription, textLocalization;
+    private Button btnVisita, btnCultivo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +40,7 @@ public class FazendaDetalhes extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(FazendaDetalhes.this, AgendarVisita.class);
+                intent.putExtra("Title", "Visita");
                 startActivity(intent);
 
             }
@@ -54,7 +56,5 @@ public class FazendaDetalhes extends AppCompatActivity {
 
             }
         });
-
-
     }
 }
