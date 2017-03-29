@@ -45,15 +45,6 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         initAdapter(0); //Default mode card view
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, FazendaActivity.class);
-                startActivityForResult(intent, 25);
-            }
-        });
     }
 
     private void initAdapter(int typeOfView) {
