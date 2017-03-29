@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -26,6 +27,11 @@ public class DuracaoDeCultivo extends AppCompatActivity {
         setContentView(R.layout.duracao_de_cultivo);
 
         insumos = (Insumo[]) getIntent().getExtras().get("insumos");
+
+        if (insumos.length > 0) {
+            TextView semInsumo = (TextView) findViewById(R.id.semInsumo);
+            semInsumo.setVisibility(View.INVISIBLE);
+        }
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler);
         recyclerView.setAdapter(new CultivoAdapter(insumos, this));
