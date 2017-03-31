@@ -59,7 +59,6 @@ public class POPOptions extends Activity{
         insumo = (TextView) findViewById(R.id.popup_title);
         insumo.setText(nomeInsumo);
 
-
         btnAgendarColheita = (Button)findViewById(R.id.btn_agendar_colheita);
         this.btnAgendarColheita.setOnClickListener(new View.OnClickListener() {
             @Override
