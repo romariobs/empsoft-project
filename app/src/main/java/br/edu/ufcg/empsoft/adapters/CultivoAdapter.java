@@ -51,6 +51,7 @@ public class CultivoAdapter extends RecyclerView.Adapter {
 
         viewHolder.cultivoMedio.setText("Em média "
                 + Integer.toString(insumo.getCultivoMedio()) + " dias");
+        viewHolder.diasCultivados.setText("Há " + insumo.getDiasCultivados() + " dias");
     }
 
     @Override
@@ -60,8 +61,8 @@ public class CultivoAdapter extends RecyclerView.Adapter {
 
     public class CultivoViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        private TextView nome;
-        private TextView cultivoMedio;
+        private TextView nome, colheitaAgendada;
+        private TextView cultivoMedio, diasCultivados;
         private Context context;
 
         public CultivoViewHolder(View itemView, Context context) {
@@ -69,6 +70,8 @@ public class CultivoAdapter extends RecyclerView.Adapter {
             itemView.setOnClickListener(this);
             nome = (TextView) itemView.findViewById(R.id.cultivo_name);
             cultivoMedio = (TextView) itemView.findViewById(R.id.cultivo_medio);
+            colheitaAgendada = (TextView)itemView.findViewById(R.id.colheita_agendada);
+            diasCultivados = (TextView)itemView.findViewById(R.id.dias_cultivados);
             this.context = context;
         }
 
@@ -76,7 +79,6 @@ public class CultivoAdapter extends RecyclerView.Adapter {
         public void onClick(View v) {
             int position = getAdapterPosition();
             Insumo insumo = insumos[position];
-            System.out.println("ENTROU");
             System.out.println(insumo.getNome());
 
             Intent intent = new Intent(this.context, POPOptions.class);
