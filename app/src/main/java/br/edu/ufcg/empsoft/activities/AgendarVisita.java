@@ -82,7 +82,6 @@ public class AgendarVisita extends AppCompatActivity
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 Agendamento agendamento = new Agendamento(mYear, mMonth, mDay);
-                database.append(Database.Table.AGENDAMENTOS, agendamento);
                 Toast.makeText(AgendarVisita.this,
                         "Agendamento realizado com sucesso.", Toast.LENGTH_SHORT).show();
 
@@ -92,7 +91,10 @@ public class AgendarVisita extends AppCompatActivity
                     Fazenda fazenda = database.getFazenda(fazendaId);
                     Insumo insumo = fazenda.getInsumo(insumoNome);
                     insumo.setProximaColheita(agendamento);
+                    insumo.setColhaParaMim(false);
                     database.update(Database.Table.FAZENDAS, fazenda);
+                } else {
+                    database.append(Database.Table.AGENDAMENTOS, agendamento);
                 }
 
                 AgendarVisita.this.finish();

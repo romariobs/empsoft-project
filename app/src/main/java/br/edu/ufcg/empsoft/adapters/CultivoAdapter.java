@@ -117,12 +117,10 @@ public class CultivoAdapter extends RecyclerView.Adapter {
             Insumo insumo = insumos.get(position);
             Log.wtf("CultivoAdapter", insumo.getProximaColheita() + "");
 
-            if (insumo.getProximaColheita() == null && !insumo.isColhaParaMim()) {
-                Intent intent = new Intent(this.context, POPOptions.class);
-                intent.putExtra("nome", insumo.getNome());
-                intent.putExtra("fazendaId", fazenda.getId());
-                context.startActivity(intent);
-            }
+            Intent intent = new Intent(this.context, POPOptions.class);
+            intent.putExtra("nome", insumo.getNome());
+            intent.putExtra("fazendaId", fazenda.getId());
+            context.startActivity(intent);
         }
     }
 }
