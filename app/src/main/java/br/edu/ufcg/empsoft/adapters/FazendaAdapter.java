@@ -128,6 +128,7 @@ public class FazendaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             intent.putExtra("description", fazenda.getDescription());
             intent.putExtra("localization", fazenda.getLocalization());
             intent.putExtra("insumos", insumos.toArray(new Insumo[insumos.size()]));
+            intent.putExtra("fazenda", fazenda);
             this.context.startActivity(intent);
         }
     }
@@ -173,7 +174,7 @@ public class FazendaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             intent.putExtra("name", fazenda.getName());
             intent.putExtra("description", fazenda.getDescription());
             intent.putExtra("localization", fazenda.getLocalization());
-            intent.putExtra("insumos", insumos.toArray(new Insumo[insumos.size()]));
+            intent.putExtra("fazendaId", fazenda.getId());
             this.context.startActivity(intent);
         }
     }

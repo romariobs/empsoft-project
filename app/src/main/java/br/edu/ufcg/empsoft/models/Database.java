@@ -1,10 +1,15 @@
 package br.edu.ufcg.empsoft.models;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -15,6 +20,7 @@ public class Database {
     private FirebaseDatabase database;
     private Map<Table, DatabaseReference> references;
     private static Database instance;
+    private List<Fazenda> fazendas;
 
     public static enum Table {
         FAZENDAS, AGENDAMENTOS, ORDENS_DE_COLHEITA
@@ -23,6 +29,24 @@ public class Database {
     private Database() {
         this.database = FirebaseDatabase.getInstance();
         this.references = this.initialize_refers();
+        this.addListener(Table.FAZENDAS, new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                GenericTypeIndicator<HashMap<String, Fazenda>> t =
+                        new GenericTypeIndicator<HashMap<String, Fazenda>>(){};
+                HashMap<String, Fazenda> mapeamentoFazendas = dataSnapshot.getValue(t);
+
+                List<Fazenda> fazendasRemote = new ArrayList<Fazenda>();
+                if (mapeamentoFazendas != null) {
+                    fazendasRemote = new ArrayList<>(mapeamentoFazendas.values());
+                }
+
+                fazendas = fazendasRemote;
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {}
+        });
     }
 
     public static Database getInstance() {
@@ -100,5 +124,17 @@ public class Database {
         String key = this.references.get(table).push().getKey();
         agendamento.setId(key);
         this.references.get(table).child(key).setValue(agendamento);
+    }
+
+    public Fazenda getFazenda(String fazendaId) {
+        for (Fazenda fazenda: fazendas) {
+            if (fazenda.getId().equals(fazendaId))
+                return fazenda;
+        }
+        return null;
+    }
+
+    public void update(Table table, Fazenda fazenda) {
+        this.references.get(table).child(fazenda.getId()).setValue(fazenda);
     }
 }

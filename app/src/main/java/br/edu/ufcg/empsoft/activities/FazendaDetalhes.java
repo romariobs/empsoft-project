@@ -1,9 +1,9 @@
 package br.edu.ufcg.empsoft.activities;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -11,9 +11,7 @@ import android.widget.TextView;
 
 import br.edu.ufcg.empsoft.R;
 import br.edu.ufcg.empsoft.adapters.PhotoPagerAdapter;
-import br.edu.ufcg.empsoft.models.Database;
 import br.edu.ufcg.empsoft.models.Insumo;
-import br.edu.ufcg.empsoft.models.OrdemDeColheita;
 import br.edu.ufcg.empsoft.models.PhotoItem;
 
 public class FazendaDetalhes extends AppCompatActivity {
@@ -67,6 +65,7 @@ public class FazendaDetalhes extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(FazendaDetalhes.this, DuracaoDeCultivo.class);
                 intent.putExtra("insumos", (Insumo[])getIntent().getExtras().get("insumos"));
+                intent.putExtra("fazendaId", getIntent().getStringExtra("fazendaId"));
                 startActivity(intent);
 
             }
