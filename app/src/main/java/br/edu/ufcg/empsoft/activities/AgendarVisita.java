@@ -20,6 +20,8 @@ import android.widget.Toast;
 import br.edu.ufcg.empsoft.R;
 import br.edu.ufcg.empsoft.models.Agendamento;
 import br.edu.ufcg.empsoft.models.Database;
+import br.edu.ufcg.empsoft.models.Fazenda;
+import br.edu.ufcg.empsoft.models.Insumo;
 
 public class AgendarVisita extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -71,17 +73,30 @@ public class AgendarVisita extends AppCompatActivity
 
     private void handleConfirmationDatePicker(DatePicker datePicker) {
         final int mYear = datePicker.getYear();
-        final int mMonth = datePicker.getMonth();
+        final int mMonth = datePicker.getMonth() + 1;
         final int mDay = datePicker.getDayOfMonth();
         AlertDialog.Builder builder = new AlertDialog.Builder(AgendarVisita.this);
-        builder.setMessage("Sua visita será " + mDay + "/" + (mMonth + 1) + "/" + mYear)
+        builder.setMessage("Sua visita será " + mDay + "/" + mMonth + "/" + mYear)
                 .setTitle("CONFIRMAÇÃO");
 
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                database.append(Database.Table.AGENDAMENTOS, new Agendamento(mYear, mMonth, mDay));
+                Agendamento agendamento = new Agendamento(mYear, mMonth, mDay);
                 Toast.makeText(AgendarVisita.this,
                         "Agendamento realizado com sucesso.", Toast.LENGTH_SHORT).show();
+
+                String insumoNome = getIntent().getStringExtra("insumoNome");
+                if (insumoNome != null) {
+                    String fazendaId = getIntent().getStringExtra("fazendaId");
+                    Fazenda fazenda = database.getFazenda(fazendaId);
+                    Insumo insumo = fazenda.getInsumo(insumoNome);
+                    insumo.setProximaColheita(agendamento);
+                    insumo.setColhaParaMim(false);
+                    database.update(Database.Table.FAZENDAS, fazenda);
+                } else {
+                    database.append(Database.Table.AGENDAMENTOS, agendamento);
+                }
+
                 AgendarVisita.this.finish();
             }
         });

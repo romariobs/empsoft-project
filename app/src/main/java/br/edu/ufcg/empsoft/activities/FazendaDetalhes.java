@@ -1,9 +1,9 @@
 package br.edu.ufcg.empsoft.activities;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -12,9 +12,8 @@ import android.widget.TextView;
 import br.edu.ufcg.empsoft.R;
 import br.edu.ufcg.empsoft.adapters.PhotoPagerAdapter;
 import br.edu.ufcg.empsoft.models.Database;
+import br.edu.ufcg.empsoft.models.Fazenda;
 import br.edu.ufcg.empsoft.models.Insumo;
-import br.edu.ufcg.empsoft.models.OrdemDeColheita;
-import br.edu.ufcg.empsoft.models.PhotoItem;
 
 public class FazendaDetalhes extends AppCompatActivity {
     private ImageView imageFazenda;
@@ -22,20 +21,21 @@ public class FazendaDetalhes extends AppCompatActivity {
     private Button btnVisita, btnCultivo;
     private ViewPager mViewPager;
     private PhotoPagerAdapter mPhotoAdapter;
+    private Fazenda fazenda;
+    private Database database = Database.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fazenda_detalhes_layout);
-        // TODO
+
+        String fazendaId = getIntent().getStringExtra("fazendaId");
+        fazenda = database.getFazenda(fazendaId);
 
         mViewPager = (ViewPager) findViewById(R.id.viewPager);
         mPhotoAdapter = new PhotoPagerAdapter();
 
-        //Tem que ter uma lista do imagens do server
-        mPhotoAdapter.addPhoto(new PhotoItem("http://i.imgur.com/DvpvklR.png"));
-        mPhotoAdapter.addPhoto(new PhotoItem("http://i.imgur.com/Qmnkvit.jpg"));
-        mPhotoAdapter.addPhoto(new PhotoItem("http://i.imgur.com/KHt3tVJ.jpg"));
+        mPhotoAdapter.addPhotos(fazenda.getPhotoItems());
 
         mViewPager.setAdapter(mPhotoAdapter);
         mViewPager.setOffscreenPageLimit(1);
@@ -67,6 +67,7 @@ public class FazendaDetalhes extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(FazendaDetalhes.this, DuracaoDeCultivo.class);
                 intent.putExtra("insumos", (Insumo[])getIntent().getExtras().get("insumos"));
+                intent.putExtra("fazendaId", getIntent().getStringExtra("fazendaId"));
                 startActivity(intent);
 
             }

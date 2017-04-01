@@ -10,6 +10,12 @@ public class Agendamento {
     private int day;
     private String id;
 
+    public Agendamento() {
+        setYear(0);
+        setMonth(0);
+        setDay(0);
+    }
+
     public Agendamento(int year, int month, int day) {
         setYear(year);
         setMonth(month);

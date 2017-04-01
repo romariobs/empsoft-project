@@ -123,11 +123,11 @@ public class FazendaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             ArrayList<Insumo> insumos = fazenda.getInsumos();
 
             Intent intent = new Intent(this.context, FazendaDetalhes.class);
-            // TODO: FIND A WAY TO STORE AND RETRIEVE FARM IMAGES
             intent.putExtra("name", fazenda.getName());
             intent.putExtra("description", fazenda.getDescription());
             intent.putExtra("localization", fazenda.getLocalization());
             intent.putExtra("insumos", insumos.toArray(new Insumo[insumos.size()]));
+            intent.putExtra("fazendaId", fazenda.getId());
             this.context.startActivity(intent);
         }
     }
@@ -169,11 +169,10 @@ public class FazendaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             ArrayList<Insumo> insumos = fazenda.getInsumos();
 
             Intent intent = new Intent(this.context, FazendaDetalhes.class);
-            // TODO: FIND A WAY TO STORE AND RETRIEVE FARM IMAGES
             intent.putExtra("name", fazenda.getName());
             intent.putExtra("description", fazenda.getDescription());
             intent.putExtra("localization", fazenda.getLocalization());
-            intent.putExtra("insumos", insumos.toArray(new Insumo[insumos.size()]));
+            intent.putExtra("fazendaId", fazenda.getId());
             this.context.startActivity(intent);
         }
     }
