@@ -41,13 +41,13 @@ public class FazendaDetalhes extends AppCompatActivity {
         mViewPager.setOffscreenPageLimit(1);
 
         this.textName = (TextView) findViewById(R.id.name_fazenda);
-        this.textName.setText("Fazenda " + getIntent().getStringExtra("name"));
+        this.textName.setText(getIntent().getStringExtra("name"));
 
         this.textDescription = (TextView)findViewById(R.id.description_fazenda);
         this.textDescription.setText(getIntent().getStringExtra("description"));
 
         textLocalization = (TextView)findViewById(R.id.localization_fazenda);
-        textLocalization.setText("Endereço: " + getIntent().getStringExtra("localization"));
+        textLocalization.setText("CAMPINA GRANDE");
 
         // BOTÕES
         this.btnVisita = (Button) findViewById(R.id.btn_visita);
