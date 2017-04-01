@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,7 +74,7 @@ public class FazendaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 CardViewHolder cardViewHolder = (CardViewHolder)holder;
                 cardViewHolder.setName(fazenda.getName());
                 cardViewHolder.setDescription(fazenda.getDescription());
-//                cardViewHolder.setThumb(fazenda.getThumb());
+                cardViewHolder.setImage(fazenda.getUrl());
                 break;
         }
     }
@@ -158,8 +160,8 @@ public class FazendaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             mDescription.setText(message);
         }
 
-        public void setThumb(int thumb) {
-            mThumb.setImageResource(thumb);
+        public void setImage(String url) {
+            Picasso.with(context).load("http://i.imgur.com/0f92rJF.png").into(mThumb); //trocar a 
         }
 
         @Override
@@ -175,6 +177,8 @@ public class FazendaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             intent.putExtra("fazendaId", fazenda.getId());
             this.context.startActivity(intent);
         }
+
+
     }
 
     public void addFazenda(Fazenda fazenda) {
