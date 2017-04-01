@@ -1,19 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="br.edu.ufcg.empsoft"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="br.edu.ufcg.empsoft">
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_app"
         android:label="@string/app_name"
-        tools:replace="icon, label"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/ic_app"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:replace="icon, label">
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.FazendaActivity" />
+        <activity
+            android:name=".activities.FazendaDetalhes"
+            android:label="Minha Fazenda" />
+        <activity
+            android:name=".activities.AgendarVisita"
+            android:label="@string/title_activity_agendar_visita"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.DuracaoDeCultivo"
+            android:label="Tempo Médio de Cultivo" />
+        <activity
+            android:name=".activities.POPOptions"
+            android:theme="@style/AppTheme.PopupTheme" />
+        <activity
+            android:name=".activities.Splash"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,20 +42,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.FazendaActivity" />
-        <activity
-            android:name=".activities.FazendaDetalhes"
-            android:label="Minha Fazenda"/>
-        <activity
-            android:name=".activities.AgendarVisita"
-            android:label="@string/title_activity_agendar_visita"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity
-            android:name=".activities.DuracaoDeCultivo"
-            android:label="Tempo Médio de Cultivo"></activity>
-        <activity
-            android:name=".activities.POPOptions"
-            android:theme="@style/AppTheme.PopupTheme"></activity>
     </application>
 
 </manifest>
