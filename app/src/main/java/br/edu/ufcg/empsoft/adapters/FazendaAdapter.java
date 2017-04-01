@@ -72,8 +72,8 @@ public class FazendaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
             case 0: //Visualization Mode Card
                 CardViewHolder cardViewHolder = (CardViewHolder)holder;
-                cardViewHolder.setName(fazenda.getName());
-                cardViewHolder.setDescription(fazenda.getDescription());
+                cardViewHolder.setName(fazenda.getName().toUpperCase());
+//                cardViewHolder.setDescription(fazenda.getDescription());
                 cardViewHolder.setImage(fazenda.getMainImage().getUrl());
                 break;
         }

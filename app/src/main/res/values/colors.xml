@@ -3,7 +3,7 @@
     <color name="colorPrimary">#f6f7cf</color>
     <color name="colorPrimaryDark">#ebed9a</color>
     <color name="colorAccent">#8f9390</color>
-    <color name="teal_500">#009688</color>
-    <color name="colorPrimary2">#097e09</color>
-    <color name="colorPrimaryDark2">#146e04</color>
+    <color name="teal_500">#99CC73</color>
+    <color name="colorPrimary2">#99CC73</color>
+    <color name="colorPrimaryDark2">#68874e</color>
 </resources>
