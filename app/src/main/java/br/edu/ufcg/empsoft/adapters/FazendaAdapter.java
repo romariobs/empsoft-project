@@ -67,14 +67,14 @@ public class FazendaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 ListViewHolder listViewHolder = (ListViewHolder)holder;
                 listViewHolder.setName(fazenda.getName());
                 listViewHolder.setDescription(fazenda.getDescription());
-//                listViewHolder.setThumb(fazenda.getThumb());
+                listViewHolder.setImage(fazenda.getMainImage().getUrl());
                 break;
 
             case 0: //Visualization Mode Card
                 CardViewHolder cardViewHolder = (CardViewHolder)holder;
                 cardViewHolder.setName(fazenda.getName());
                 cardViewHolder.setDescription(fazenda.getDescription());
-                cardViewHolder.setImage(fazenda.getUrl());
+                cardViewHolder.setImage(fazenda.getMainImage().getUrl());
                 break;
         }
     }
@@ -115,8 +115,9 @@ public class FazendaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             mDescription.setText(message);
         }
 
-        public void setThumb(int thumb) {
-            mThumb.setImageResource(thumb);}
+        public void setImage(String image) {
+            Picasso.with(context).load(image).into(mThumb);
+        }
 
         @Override
         public void onClick(View v) {
@@ -132,6 +133,8 @@ public class FazendaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             intent.putExtra("fazendaId", fazenda.getId());
             this.context.startActivity(intent);
         }
+
+
     }
 
     public class CardViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -161,7 +164,7 @@ public class FazendaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         }
 
         public void setImage(String url) {
-            Picasso.with(context).load("http://i.imgur.com/0f92rJF.png").into(mThumb); //trocar a 
+            Picasso.with(context).load(url).into(mThumb);
         }
 
         @Override

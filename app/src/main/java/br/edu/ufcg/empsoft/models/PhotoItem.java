@@ -24,4 +24,9 @@ public class PhotoItem {
     public void setUrl(String url) {
         mUrl = url;
     }
+
+    @Override
+    public String toString() {
+        return mUrl;
+    }
 }

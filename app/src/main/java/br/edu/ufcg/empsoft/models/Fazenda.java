@@ -27,7 +27,6 @@ public class Fazenda implements Serializable {
         setInsumos(new ArrayList<Insumo>());
         setPhotoItems(new ArrayList<PhotoItem>());
         setMainImage(new PhotoItem(PhotoItem.DEFAULT_IMAGE));
-        setUrl("");
     }
 
     public Fazenda(String name, String description) {
@@ -40,7 +39,7 @@ public class Fazenda implements Serializable {
         this();
         setName(name);
         setDescription(description);
-        setUrl(urlMain);
+        setMainImage(new PhotoItem(urlMain));
     }
 
     public void addInsumo(Insumo insumo) {
@@ -77,14 +76,6 @@ public class Fazenda implements Serializable {
 
     public void setLocalization(String localization) {
         this.localization = localization;
-    }
-
-    public int getThumb() {
-        return thumb;
-    }
-
-    public void setThumb(int thumb) {
-        this.thumb = thumb;
     }
 
     public ArrayList<Insumo> getInsumos() {
@@ -136,13 +127,5 @@ public class Fazenda implements Serializable {
 
     public void setMainImage(PhotoItem mainImage) {
         this.mainImage = mainImage;
-    }
-
-    public String getUrl() {
-        return urlMainImage;
-    }
-
-    public void setUrl(String url) {
-        this.urlMainImage = url;
     }
 }
