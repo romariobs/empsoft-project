@@ -7,6 +7,11 @@ package br.edu.ufcg.empsoft.models;
 public class PhotoItem {
 
     private String mUrl;
+    public static String DEFAULT_IMAGE = "http://i.imgur.com/KHt3tVJ.jpg";
+
+    public PhotoItem() {
+        setUrl(DEFAULT_IMAGE);
+    }
 
     public PhotoItem(String url) {
         mUrl = url;

@@ -1,13 +1,11 @@
 package br.edu.ufcg.empsoft.adapters;
 
 import android.support.v4.view.PagerAdapter;
-import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
@@ -37,6 +35,12 @@ public class PhotoPagerAdapter extends PagerAdapter implements PhotoAdapter {
         mData.add(item);
     }
 
+    public void addPhotos(List<PhotoItem> photoItems) {
+        for (PhotoItem photo: photoItems) {
+            addPhoto(photo);
+        }
+    }
+
     @Override
     public float getBaseElevation() {
         return mBaseElevation;
@@ -63,6 +67,7 @@ public class PhotoPagerAdapter extends PagerAdapter implements PhotoAdapter {
                 .inflate(R.layout.photo_adapter, container, false);
         container.addView(view);
         bind(mData.get(position), view);
+        Log.wtf("PhotoPagerAdapter.instantiateItem", mData.get(position).getUrl());
 //        CardView cardView = (CardView) view.findViewById(R.id.cardView);
 //
 //        if (mBaseElevation == 0) {

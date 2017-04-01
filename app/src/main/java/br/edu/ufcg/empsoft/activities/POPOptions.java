@@ -77,6 +77,7 @@ public class POPOptions extends Activity{
             @Override
             public void onClick(View view) {
                 insumo.setColhaParaMim(true);
+                insumo.setProximaColheita(null);
 
                 database.append(Database.Table.ORDENS_DE_COLHEITA, new OrdemDeColheita(nomeInsumo));
                 database.update(Database.Table.FAZENDAS, fazenda);

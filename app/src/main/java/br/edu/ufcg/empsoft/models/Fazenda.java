@@ -16,12 +16,16 @@ public class Fazenda implements Serializable {
     private String localization;
     private int thumb;
     private ArrayList<Insumo> insumos;
+    private ArrayList<PhotoItem> photoItems;
+    private PhotoItem mainImage;
 
     public Fazenda() {
         setName("");
         setDescription("");
         setLocalization("");
         setInsumos(new ArrayList<Insumo>());
+        setPhotoItems(new ArrayList<PhotoItem>());
+        setMainImage(new PhotoItem(PhotoItem.DEFAULT_IMAGE));
     }
 
     public Fazenda(String name, String description) {
@@ -101,5 +105,27 @@ public class Fazenda implements Serializable {
 
     public void setInsumos(ArrayList<Insumo> insumos) {
         this.insumos = insumos;
+    }
+
+    public ArrayList<PhotoItem> getPhotoItems() {
+        return photoItems;
+    }
+
+    public void setPhotoItems(ArrayList<PhotoItem> photoItems) {
+        if (photoItems == null || photoItems.isEmpty()) {
+            photoItems = new ArrayList<>();
+            photoItems.add(new PhotoItem("http://i.imgur.com/DvpvklR.png"));
+            photoItems.add(new PhotoItem("http://i.imgur.com/Qmnkvit.jpg"));
+            photoItems.add(new PhotoItem("http://i.imgur.com/KHt3tVJ.jpg"));
+        }
+        this.photoItems = photoItems;
+    }
+
+    public PhotoItem getMainImage() {
+        return mainImage;
+    }
+
+    public void setMainImage(PhotoItem mainImage) {
+        this.mainImage = mainImage;
     }
 }
