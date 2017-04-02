@@ -9,28 +9,28 @@
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/card_view"
         android:layout_gravity="center_horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="200dp"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
         android:layout_margin="15dp"
         card_view:cardBackgroundColor="@color/teal_500"
         card_view:cardCornerRadius="4dp">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp"
             >
 
+
             <ImageView
                 android:id="@+id/imageViewThumb"
                 android:tag="image_tag"
                 android:layout_width="match_parent"
-                android:layout_height="130dp"
-                android:src="@mipmap/farm_default"
-                android:scaleType="fitXY"
-                />
+                android:layout_height="wrap_content"
+                android:src="@mipmap/design_default"/>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -47,7 +47,8 @@
                     android:text="Nome"
                     android:textAlignment="center"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textSize="24dp"/>
 
                 <TextView
                     android:id="@+id/textViewFarmDesc"
@@ -55,11 +56,14 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
                     android:layout_weight="2"
-                    android:text="CAMPINA GRANDE"
+                    android:text="Campina Grande"
+                    android:textSize="14dp"
                     android:textAlignment="center"
-                    android:textAppearance="?android:attr/textAppearance" />
+                    android:textAppearance="?android:attr/textAppearance"/>
                 <!--android:textAppearance="?android:attr/textAppearance"-->
             </LinearLayout>
+
+
         </LinearLayout>
     </android.support.v7.widget.CardView>
 

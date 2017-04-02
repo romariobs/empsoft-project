@@ -7,7 +7,10 @@ package br.edu.ufcg.empsoft.models;
 public class PhotoItem {
 
     private String mUrl;
-    public static String DEFAULT_IMAGE = "http://i.imgur.com/KHt3tVJ.jpg";
+    // IMAGEM DE FAZENDA REAL
+    //public static String DEFAULT_IMAGE = "http://i.imgur.com/KHt3tVJ.jpg";
+    // FAZENDA DESENHO
+    public static String DEFAULT_IMAGE = "http://imgur.com/rszNFbw";
 
     public PhotoItem() {
         setUrl(DEFAULT_IMAGE);
@@ -17,9 +20,7 @@ public class PhotoItem {
         mUrl = url;
     }
 
-    public String getUrl() {
-        return mUrl;
-    }
+    public String getUrl() { return mUrl; }
 
     public void setUrl(String url) {
         mUrl = url;
