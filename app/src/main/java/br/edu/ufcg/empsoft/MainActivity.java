@@ -17,6 +17,7 @@ import br.edu.ufcg.empsoft.adapters.FazendaAdapter;
 import br.edu.ufcg.empsoft.models.CallBack;
 import br.edu.ufcg.empsoft.models.Database;
 import br.edu.ufcg.empsoft.models.Fazenda;
+import br.edu.ufcg.empsoft.utils.FazendaList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         recList.setLayoutManager(llm);
 
         adapter = new FazendaAdapter(new ArrayList<Fazenda>(), recList, this, typeOfView);
+        adapter.setFazendasList(FazendaList.fazendasList);
         database.addListener(new CallBack<List<Fazenda>>() {
             @Override
             public void onDataChange(List<Fazenda> result) {
@@ -66,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -78,13 +79,6 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_cardset) {
-            initAdapter(0);
-            return true;
-        } else if (id == R.id.action_listset) {
-            initAdapter(1);
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }

@@ -2,14 +2,4 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="br.edu.ufcg.empsoft.MainActivity">
-    <item
-        android:id="@+id/action_cardset"
-        android:orderInCategory="100"
-        android:title="Mostrar cards"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/action_listset"
-        android:orderInCategory="100"
-        android:title="Mostrar lista"
-        app:showAsAction="never" />
 </menu>
