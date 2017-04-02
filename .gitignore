@@ -9,3 +9,5 @@
 *.log
 *.apk
 *.ap_
+build.gradle
+app/build.gradle

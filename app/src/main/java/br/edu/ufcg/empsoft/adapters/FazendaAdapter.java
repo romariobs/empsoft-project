@@ -34,6 +34,14 @@ public class FazendaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         this.recyclerView = recyclerView;
         this.typeOfView = typeOfView;
         this.context = context;
+
+        for (Fazenda fazenda: fazendasList
+             ) {
+            for (Insumo insumo: fazenda.getInsumos()
+                 ) {
+                System.out.println(insumo.getImage());
+            }
+        }
     }
 
     @Override

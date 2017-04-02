@@ -38,12 +38,6 @@ public class FazendaActivity extends AppCompatActivity {
                 if (!mEtName.getText().toString().isEmpty() && !mEtDescription.getText().toString().isEmpty()) {
                     Fazenda fazenda = new Fazenda(mEtName.getText().toString(), mEtDescription.getText().toString());
 
-                    // --> CRIANDO INSUMOS PARA TESTES
-                         fazenda.addInsumo(new Insumo("Batata", 30, 0));
-                         fazenda.addInsumo(new Insumo("Milho", 60, 0));
-                        // ERA MASSA COLOCAR IMAGENS PRA OS INSUMOS, UNS ÍCONES JÁ AJUDAVA
-                    // <-- TESTES
-
                     Intent returnIntent = new Intent();
                     returnIntent.putExtra("novaFazenda", fazenda);
                     setResult(Activity.RESULT_OK, returnIntent);
