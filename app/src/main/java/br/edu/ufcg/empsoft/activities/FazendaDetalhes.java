@@ -11,13 +11,14 @@ import android.widget.TextView;
 
 import br.edu.ufcg.empsoft.R;
 import br.edu.ufcg.empsoft.adapters.PhotoPagerAdapter;
+import br.edu.ufcg.empsoft.models.CallBack;
 import br.edu.ufcg.empsoft.models.Database;
 import br.edu.ufcg.empsoft.models.Fazenda;
 import br.edu.ufcg.empsoft.models.Insumo;
 
 public class FazendaDetalhes extends AppCompatActivity {
     private ImageView imageFazenda;
-    private TextView textName, textDescription, textLocalization;
+    private TextView textName, textDescription, textLocalization, proximoAgendamento;
     private Button btnVisita, btnCultivo;
     private ViewPager mViewPager;
     private PhotoPagerAdapter mPhotoAdapter;
@@ -29,25 +30,25 @@ public class FazendaDetalhes extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fazenda_detalhes_layout);
 
-        String fazendaId = getIntent().getStringExtra("fazendaId");
-        fazenda = database.getFazenda(fazendaId);
+        final String fazendaId = getIntent().getStringExtra("fazendaId");
+        this.fazenda = database.getFazenda(fazendaId);
 
-        mViewPager = (ViewPager) findViewById(R.id.viewPager);
-        mPhotoAdapter = new PhotoPagerAdapter();
+        this.mViewPager = (ViewPager) findViewById(R.id.viewPager);
+        this.mPhotoAdapter = new PhotoPagerAdapter();
 
-        mPhotoAdapter.addPhotos(fazenda.getPhotoItems());
+        this.mPhotoAdapter.addPhotos(fazenda.getPhotoItems());
 
-        mViewPager.setAdapter(mPhotoAdapter);
-        mViewPager.setOffscreenPageLimit(1);
+        this.mViewPager.setAdapter(mPhotoAdapter);
+        this.mViewPager.setOffscreenPageLimit(1);
 
-        this.textName = (TextView) findViewById(R.id.name_fazenda);
-        this.textName.setText(getIntent().getStringExtra("name"));
-
-        this.textDescription = (TextView)findViewById(R.id.description_fazenda);
-        this.textDescription.setText(getIntent().getStringExtra("description"));
-
-        textLocalization = (TextView)findViewById(R.id.localization_fazenda);
-        textLocalization.setText("CAMPINA GRANDE");
+        updateTexts();
+        database.addListener(this.fazenda, new CallBack<Fazenda>() {
+            @Override
+            public void onDataChange(Fazenda result) {
+                fazenda = result;
+                updateTexts();
+            }
+        });
 
         // BOTÕES
         this.btnVisita = (Button) findViewById(R.id.btn_visita);
@@ -56,6 +57,7 @@ public class FazendaDetalhes extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(FazendaDetalhes.this, AgendarVisita.class);
                 intent.putExtra("Title", "Visita");
+                intent.putExtra("fazendaId", fazendaId);
                 startActivity(intent);
 
             }
@@ -72,5 +74,25 @@ public class FazendaDetalhes extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void updateTexts() {
+        this.textName = (TextView) findViewById(R.id.name_fazenda);
+        this.textName.setText(getIntent().getStringExtra("name"));
+
+        this.textDescription = (TextView)findViewById(R.id.description_fazenda);
+        this.textDescription.setText(getIntent().getStringExtra("description"));
+
+        this.textLocalization = (TextView)findViewById(R.id.localization_fazenda);
+        this.textLocalization.setText("CAMPINA GRANDE");
+
+        this.proximoAgendamento = (TextView)findViewById(R.id.proxima_visita_fazenda);
+        if (this.fazenda.getProximaVistia() != null) {
+            this.proximoAgendamento
+                    .setText("Você agendou sua visita para:\n" + this.fazenda.getProximaVistia());
+            this.proximoAgendamento.setVisibility(View.VISIBLE);
+        } else {
+            this.proximoAgendamento.setVisibility(View.INVISIBLE);
+        }
     }
 }

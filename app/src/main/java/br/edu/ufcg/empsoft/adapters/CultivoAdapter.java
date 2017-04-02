@@ -10,15 +10,12 @@ import android.view.ViewGroup;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.ValueEventListener;
-
 import java.util.List;
 
 import br.edu.ufcg.empsoft.R;
 import br.edu.ufcg.empsoft.activities.POPOptions;
 import br.edu.ufcg.empsoft.models.Agendamento;
+import br.edu.ufcg.empsoft.models.CallBack;
 import br.edu.ufcg.empsoft.models.Database;
 import br.edu.ufcg.empsoft.models.Fazenda;
 import br.edu.ufcg.empsoft.models.Insumo;
@@ -41,15 +38,12 @@ public class CultivoAdapter extends RecyclerView.Adapter {
         this.context = context;
         this.recyclerView = rv;
 
-        database.addListener(Database.Table.FAZENDAS, fazenda, new ValueEventListener() {
+        database.addListener(fazenda, new CallBack<Fazenda>() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                List<Insumo> insumosRemote = dataSnapshot.getValue(Fazenda.class).getInsumos();
+            public void onDataChange(Fazenda fazendaResult) {
+                List<Insumo> insumosRemote = fazendaResult.getInsumos();
                 setInsumos(insumosRemote);
             }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {}
         });
     }
 

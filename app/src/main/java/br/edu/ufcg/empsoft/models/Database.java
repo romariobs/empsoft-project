@@ -29,23 +29,11 @@ public class Database {
     private Database() {
         this.database = FirebaseDatabase.getInstance();
         this.references = this.initialize_refers();
-        this.addListener(Table.FAZENDAS, new ValueEventListener() {
+        this.addListener(new CallBack<List<Fazenda>>() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                GenericTypeIndicator<HashMap<String, Fazenda>> t =
-                        new GenericTypeIndicator<HashMap<String, Fazenda>>(){};
-                HashMap<String, Fazenda> mapeamentoFazendas = dataSnapshot.getValue(t);
-
-                List<Fazenda> fazendasRemote = new ArrayList<Fazenda>();
-                if (mapeamentoFazendas != null) {
-                    fazendasRemote = new ArrayList<>(mapeamentoFazendas.values());
-                }
-
-                fazendas = fazendasRemote;
+            public void onDataChange(List<Fazenda> result) {
+                fazendas = result;
             }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {}
         });
     }
 
@@ -73,19 +61,81 @@ public class Database {
             this.references.get(table).addValueEventListener(listener);
     }
 
-    public void addListener(Table table, Fazenda fazenda, ValueEventListener listener) {
-        if (listener != null)
-            this.references.get(table).child(fazenda.getId()).addValueEventListener(listener);
+    public void addListener(final CallBack<List<Fazenda>> callback) {
+        if (callback != null) {
+            callback.setListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    GenericTypeIndicator<HashMap<String, Fazenda>> t =
+                            new GenericTypeIndicator<HashMap<String, Fazenda>>(){};
+                    HashMap<String, Fazenda> mapeamentoFazendas = dataSnapshot.getValue(t);
+
+                    List<Fazenda> fazendasRemote = new ArrayList<Fazenda>();
+                    if (mapeamentoFazendas != null) {
+                        fazendasRemote = new ArrayList<>(mapeamentoFazendas.values());
+                    }
+
+                    callback.onDataChange(fazendasRemote);
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {}
+            });
+            this.addListener(Table.FAZENDAS, callback.getListener());
+        }
     }
 
-    public void addListener(Table table, OrdemDeColheita ordem, ValueEventListener listener) {
-        if (listener != null)
-            this.references.get(table).child(ordem.getId()).addValueEventListener(listener);
+    public void addListener(Fazenda fazenda, final CallBack<Fazenda> callback) {
+        if (callback != null) {
+            callback.setListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    Fazenda fazendaResult = dataSnapshot.getValue(Fazenda.class);
+                    callback.onDataChange(fazendaResult);
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {}
+            });
+            this.references.get(Table.FAZENDAS).child(fazenda.getId())
+                    .addValueEventListener(callback.getListener());
+        }
     }
 
-    public void addListener(Table table, Agendamento agendamento, ValueEventListener listener) {
-        if (listener != null)
-            this.references.get(table).child(agendamento.getId()).addValueEventListener(listener);
+    public void addListener(OrdemDeColheita ordem, final CallBack<OrdemDeColheita> callback) {
+        if (callback != null) {
+            callback.setListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    OrdemDeColheita ordem = dataSnapshot.getValue(OrdemDeColheita.class);
+                    callback.onDataChange(ordem);
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {}
+            });
+            this.references.get(Table.ORDENS_DE_COLHEITA)
+                    .child(ordem.getId())
+                    .addValueEventListener(callback.getListener());
+        }
+    }
+
+    public void addListener(Agendamento agendamento, final CallBack<Agendamento> callback) {
+        if (callback != null) {
+            callback.setListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    Agendamento agendamentoResult = dataSnapshot.getValue(Agendamento.class);
+                    callback.onDataChange(agendamentoResult);
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {}
+            });
+            this.references.get(Table.AGENDAMENTOS)
+                    .child(agendamento.getId())
+                    .addValueEventListener(callback.getListener());
+        }
     }
 
     public void removeListener(Table table, ValueEventListener listener) {
@@ -93,37 +143,40 @@ public class Database {
             this.references.get(table).removeEventListener(listener);
     }
 
-    public void removeListener(Table table, Fazenda fazenda, ValueEventListener listener) {
+    public void removeListener(Fazenda fazenda, ValueEventListener listener) {
         if (listener != null)
-            this.references.get(table).child(fazenda.getId()).removeEventListener(listener);
+            this.references.get(Table.FAZENDAS)
+                    .child(fazenda.getId()).removeEventListener(listener);
     }
 
-    public void removeListener(Table table, OrdemDeColheita ordem, ValueEventListener listener) {
+    public void removeListener(OrdemDeColheita ordem, ValueEventListener listener) {
         if (listener != null)
-            this.references.get(table).child(ordem.getId()).removeEventListener(listener);
+            this.references.get(Table.ORDENS_DE_COLHEITA)
+                    .child(ordem.getId()).removeEventListener(listener);
     }
 
-    public void removeListener(Table table, Agendamento agendamento, ValueEventListener listener) {
+    public void removeListener(Agendamento agendamento, ValueEventListener listener) {
         if (listener != null)
-            this.references.get(table).child(agendamento.getId()).removeEventListener(listener);
+            this.references.get(Table.AGENDAMENTOS)
+                    .child(agendamento.getId()).removeEventListener(listener);
     }
 
-    public void append(Table table, Fazenda fazenda) {
-        String key = this.references.get(table).push().getKey();
+    public void append(Fazenda fazenda) {
+        String key = this.references.get(Table.FAZENDAS).push().getKey();
         fazenda.setId(key);
-        this.references.get(table).child(key).setValue(fazenda);
+        this.references.get(Table.FAZENDAS).child(key).setValue(fazenda);
     }
 
-    public void append(Table table, OrdemDeColheita ordem){
-        String key = this.references.get(table).push().getKey();
+    public void append(OrdemDeColheita ordem){
+        String key = this.references.get(Table.ORDENS_DE_COLHEITA).push().getKey();
         ordem.setId(key);
-        this.references.get(table).child(key).setValue(ordem);
+        this.references.get(Table.ORDENS_DE_COLHEITA).child(key).setValue(ordem);
     }
 
-    public void append(Table table, Agendamento agendamento) {
-        String key = this.references.get(table).push().getKey();
+    public void append(Agendamento agendamento) {
+        String key = this.references.get(Table.AGENDAMENTOS).push().getKey();
         agendamento.setId(key);
-        this.references.get(table).child(key).setValue(agendamento);
+        this.references.get(Table.AGENDAMENTOS).child(key).setValue(agendamento);
     }
 
     public Fazenda getFazenda(String fazendaId) {
@@ -134,7 +187,7 @@ public class Database {
         return null;
     }
 
-    public void update(Table table, Fazenda fazenda) {
-        this.references.get(table).child(fazenda.getId()).setValue(fazenda);
+    public void update(Fazenda fazenda) {
+        this.references.get(Table.FAZENDAS).child(fazenda.getId()).setValue(fazenda);
     }
 }
