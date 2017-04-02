@@ -30,6 +30,7 @@ public class AgendarVisita extends AppCompatActivity
     private Button visitaOk;
     private Button visitaCancelar;
     private Database database = Database.getInstance();
+    private Fazenda fazenda;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,8 @@ public class AgendarVisita extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         handleDatePicker(this);
+
+        fazenda = database.getFazenda(getIntent().getStringExtra("fazendaId"));
 
         setTitle(getIntent().getExtras().getString("Title"));
 
@@ -92,9 +95,10 @@ public class AgendarVisita extends AppCompatActivity
                     Insumo insumo = fazenda.getInsumo(insumoNome);
                     insumo.setProximaColheita(agendamento);
                     insumo.setColhaParaMim(false);
-                    database.update(Database.Table.FAZENDAS, fazenda);
+                    database.update(fazenda);
                 } else {
-                    database.append(Database.Table.AGENDAMENTOS, agendamento);
+                    fazenda.setProximaVistia(agendamento);
+                    database.update(fazenda);
                 }
 
                 AgendarVisita.this.finish();
