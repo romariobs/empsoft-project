@@ -15,7 +15,7 @@ import br.edu.ufcg.empsoft.models.Fazenda;
 
 public class Splash extends AppCompatActivity {
 
-    private final int SPLASH_DISPLAY_LENGTH = 500;
+    private final int SPLASH_DISPLAY_LENGTH = 2000;
     private Database database = Database.getInstance();
 
     @Override
