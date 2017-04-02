@@ -79,8 +79,8 @@ public class POPOptions extends Activity{
                 insumo.setColhaParaMim(true);
                 insumo.setProximaColheita(null);
 
-                database.append(Database.Table.ORDENS_DE_COLHEITA, new OrdemDeColheita(nomeInsumo));
-                database.update(Database.Table.FAZENDAS, fazenda);
+                database.append(new OrdemDeColheita(nomeInsumo));
+                database.update(fazenda);
 
                 Toast.makeText(POPOptions.this,
                         "Colheremos o insumoText para você, não se esqueça de vir buscá-lo!",

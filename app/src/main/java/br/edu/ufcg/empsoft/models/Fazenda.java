@@ -19,6 +19,7 @@ public class Fazenda implements Serializable {
     private ArrayList<Insumo> insumos;
     private ArrayList<PhotoItem> photoItems;
     private PhotoItem mainImage;
+    private Agendamento proximaVistia;
 
     public Fazenda() {
         setName("");
@@ -127,5 +128,13 @@ public class Fazenda implements Serializable {
 
     public void setMainImage(PhotoItem mainImage) {
         this.mainImage = mainImage;
+    }
+
+    public Agendamento getProximaVistia() {
+        return proximaVistia;
+    }
+
+    public void setProximaVistia(Agendamento proximaVistia) {
+        this.proximaVistia = proximaVistia;
     }
 }
