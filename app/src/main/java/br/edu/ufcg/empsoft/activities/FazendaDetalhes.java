@@ -34,6 +34,8 @@ public class FazendaDetalhes extends AppCompatActivity {
         this.fazenda = database.getFazenda(fazendaId);
 
         this.mViewPager = (ViewPager) findViewById(R.id.viewPager);
+        mViewPager.setScrollX(0);
+        mViewPager.setScrollY(0);
         this.mPhotoAdapter = new PhotoPagerAdapter();
 
         this.mPhotoAdapter.addPhotos(fazenda.getPhotoItems());

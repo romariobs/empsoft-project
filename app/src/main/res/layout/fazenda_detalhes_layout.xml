@@ -7,8 +7,15 @@
     tools:context="br.edu.ufcg.empsoft.activities.FazendaDetalhes"
     android:orientation="vertical">
 
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="400dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:clipToPadding="false" />
+
     <ScrollView
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <LinearLayout
@@ -16,20 +23,10 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <android.support.v4.view.ViewPager
-                android:id="@+id/viewPager"
-                android:layout_width="match_parent"
-                android:layout_height="267dp"
-                android:layout_gravity="center_horizontal|center_vertical"
-                android:clipToPadding="false"
-                android:scaleType="fitXY"
-                android:overScrollMode="never" />
-
             <TextView
                 android:id="@+id/name_fazenda"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
                 android:gravity="center"
                 android:text="Este é o nome da fazenda!"
                 android:textAppearance="@android:style/TextAppearance.Material.Headline" />
@@ -38,7 +35,6 @@
                 android:id="@+id/description_fazenda"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
                 android:gravity="center"
                 android:text="Esta é a descrição da fazenda!"
                 android:textAppearance="@android:style/TextAppearance.Material.Widget.Toolbar.Subtitle" />
@@ -47,7 +43,6 @@
                 android:id="@+id/localization_fazenda"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
                 android:gravity="center"
                 android:text="Este é o endereço da fazenda!"
                 android:textAppearance="@android:style/TextAppearance.Material.Medium" />
@@ -56,7 +51,7 @@
                 android:id="@+id/proxima_visita_fazenda"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="5dp"
                 android:gravity="center"
                 android:text="Esta é a próxima visita!"
                 android:textAppearance="@android:style/TextAppearance.Material.Medium" />
