@@ -1,0 +1,346 @@
+{
+  "AGENDAMENTOS" : {
+    "-KgeH0qOOF0G6Gr13wtf" : {
+      "day" : 12,
+      "id" : "-KgeH0qOOF0G6Gr13wtf",
+      "month" : 4,
+      "year" : 2017
+    },
+    "-KgfW1Qbxmf7kBcbg9oe" : {
+      "day" : 3,
+      "id" : "-KgfW1Qbxmf7kBcbg9oe",
+      "month" : 4,
+      "year" : 2017
+    },
+    "-KgilZXHOc-WLC919OvU" : {
+      "day" : 5,
+      "id" : "-KgilZXHOc-WLC919OvU",
+      "month" : 4,
+      "year" : 2017
+    },
+    "-KgilfcPCuqvT7kZw1q0" : {
+      "day" : 12,
+      "id" : "-KgilfcPCuqvT7kZw1q0",
+      "month" : 4,
+      "year" : 2017
+    }
+  },
+  "FAZENDAS" : {
+    "-KfZDuPIA-lufuJrTHT8" : {
+      "description" : "Uma bela plantação com feijão e couve-flor. Está em um bom estado. Não esqueça de sempre visitar.",
+      "id" : "-KfZDuPIA-lufuJrTHT8",
+      "insumos" : [ {
+        "colhaParaMim" : false,
+        "cultivoMedio" : 92,
+        "diasCultivados" : 37,
+        "image" : "http://www.combrasil.com/images/feij%C3%A3o.png",
+        "nome" : "Feijão Preto",
+        "proximaColheita" : {
+          "day" : 13,
+          "month" : 4,
+          "year" : 2017
+        }
+      }, {
+        "colhaParaMim" : false,
+        "cultivoMedio" : 60,
+        "diasCultivados" : 20,
+        "image" : "http://www.hortifruti.com.br/wp-content/uploads/2014/10/PRODUTO_couve-flor.png",
+        "nome" : "Couve-flor",
+        "proximaColheita" : {
+          "day" : 13,
+          "month" : 4,
+          "year" : 2017
+        }
+      } ],
+      "localization" : "",
+      "mainImage" : {
+        "url" : "http://i.imgur.com/WQy3LVC.png"
+      },
+      "name" : "Fazenda Bom Jesus",
+      "photoItems" : [ {
+        "url" : "http://s2.glbimg.com/G8ZWzTe9u6Li3nXRpuiVt2eonh4=/780x440/e.glbimg.com/og/ed/f/original/2015/05/04/couve3.jpg"
+      }, {
+        "url" : "https://3.bp.blogspot.com/-5T9JzdasaiI/Vw7j4UFKifI/AAAAAAAAHsw/inqU5-5AoZ09IR5HC6KQo6IRrDmWdqOYQCLcB/s640/horta%2Bnas%2Bescolas%2B2.jpg"
+      }, {
+        "url" : "http://www.kimage.com.br/media/catalog/product/cache/1/image/72f1a4235c7aca6c735077225f5dacf7/b/a/banner_20110125_151155621244776a80f50ea30c634508df5e98.jpg"
+      }, {
+        "url" : "http://1.bp.blogspot.com/-HSW2fBFKx6c/T9RGUvfA4-I/AAAAAAAAEHE/55AVjOCOQDo/s1600/DSCN8639.JPG"
+      } ],
+      "proximaVistia" : {
+        "day" : 19,
+        "month" : 4,
+        "year" : 2017
+      }
+    },
+    "-KfZOwS4-goUXgb-oksz" : {
+      "description" : "Com um bom cultivo e um excelente clima",
+      "id" : "-KfZOwS4-goUXgb-oksz",
+      "insumos" : [ {
+        "colhaParaMim" : false,
+        "cultivoMedio" : 30,
+        "diasCultivados" : 23,
+        "image" : "http://www.andrelanches.com.br/wp-content/uploads/2016/12/alface-crespa.png",
+        "nome" : "Alface",
+        "proximaColheita" : {
+          "day" : 22,
+          "month" : 4,
+          "year" : 2017
+        }
+      }, {
+        "colhaParaMim" : true,
+        "cultivoMedio" : 60,
+        "diasCultivados" : 12,
+        "image" : "http://www.heinzbrasil.com.br/library/images/products/ketchup/tomatoes.png",
+        "nome" : "Tomate"
+      } ],
+      "localization" : "",
+      "mainImage" : {
+        "url" : "http://i.imgur.com/WQy3LVC.png"
+      },
+      "name" : "Fazenda Santa Rita",
+      "photoItems" : [ {
+        "url" : "http://www.tomitanet.com.br/simpleviewer/images/10.jpg"
+      }, {
+        "url" : "http://s2.glbimg.com/FRCjHWQBeNKLjkpCzEZMY0JBrS4=/e.glbimg.com/og/ed/f/original/2013/12/07/gr_responde_muda_alface.jpg"
+      }, {
+        "url" : "http://2.bp.blogspot.com/-CvIO12rRdnw/VkC93VLlocI/AAAAAAAAG7A/3obxNvlvlhk/s1600/DSC00427.JPG"
+      } ],
+      "proximaVistia" : {
+        "day" : 21,
+        "month" : 4,
+        "year" : 2017
+      }
+    }
+  },
+  "ORDENS_DE_COLHEITA" : {
+    "-Kg80iU88gSHQZFTNuAK" : {
+      "id" : "-Kg80iU88gSHQZFTNuAK",
+      "insumo" : "Batata"
+    },
+    "-Kg80j2t0iv9xZWOvtXr" : {
+      "id" : "-Kg80j2t0iv9xZWOvtXr",
+      "insumo" : "Batata"
+    },
+    "-Kg80kQNLIAJyJ-BIosw" : {
+      "id" : "-Kg80kQNLIAJyJ-BIosw",
+      "insumo" : "Batata"
+    },
+    "-Kg80nktEVIyaEn0CQQ3" : {
+      "id" : "-Kg80nktEVIyaEn0CQQ3",
+      "insumo" : "Milho"
+    },
+    "-Kg80nxUNLj2ClzhIIPh" : {
+      "id" : "-Kg80nxUNLj2ClzhIIPh",
+      "insumo" : "Milho"
+    },
+    "-Kg81-vfSkvCnaZ41M__" : {
+      "id" : "-Kg81-vfSkvCnaZ41M__",
+      "insumo" : "Batata"
+    },
+    "-Kg83WTKjO-eNvRKTGCs" : {
+      "id" : "-Kg83WTKjO-eNvRKTGCs",
+      "insumo" : "Batata"
+    },
+    "-Kg83nZRsVrY5m4SvjsE" : {
+      "id" : "-Kg83nZRsVrY5m4SvjsE",
+      "insumo" : "Batata"
+    },
+    "-Kg83rZeU2PceW2cfCEN" : {
+      "id" : "-Kg83rZeU2PceW2cfCEN",
+      "insumo" : "Milho"
+    },
+    "-KgOfGygWtAeIZ1k0ifW" : {
+      "id" : "-KgOfGygWtAeIZ1k0ifW",
+      "insumo" : "Milho Preto Verde"
+    },
+    "-KgOfHq4IUIwJZY_DHmU" : {
+      "id" : "-KgOfHq4IUIwJZY_DHmU",
+      "insumo" : "Milho Preto Verde"
+    },
+    "-Kgb21DuZ6ZSOO79y5Mc" : {
+      "id" : "-Kgb21DuZ6ZSOO79y5Mc",
+      "insumo" : "Milho"
+    },
+    "-KgbGOZAsewXhQzSIv1a" : {
+      "id" : "-KgbGOZAsewXhQzSIv1a",
+      "insumo" : "Milho"
+    },
+    "-KgbI19eWshyzChRh7gc" : {
+      "id" : "-KgbI19eWshyzChRh7gc",
+      "insumo" : "Milho"
+    },
+    "-KgbIgkM0r0Vci2Csx1s" : {
+      "id" : "-KgbIgkM0r0Vci2Csx1s",
+      "insumo" : "Milho"
+    },
+    "-KgbJ1rOpJmdzXddnbGI" : {
+      "id" : "-KgbJ1rOpJmdzXddnbGI",
+      "insumo" : "Arroz"
+    },
+    "-KgbJ4bSasArM8JYxyNB" : {
+      "id" : "-KgbJ4bSasArM8JYxyNB",
+      "insumo" : "Arroz"
+    },
+    "-KgbJnzZs3pxOm3axNHX" : {
+      "id" : "-KgbJnzZs3pxOm3axNHX",
+      "insumo" : "Arroz"
+    },
+    "-KgbPS96-JJpFwBwbK3n" : {
+      "id" : "-KgbPS96-JJpFwBwbK3n",
+      "insumo" : "Milho"
+    },
+    "-KgbYIJE1HocPtnCQOG7" : {
+      "id" : "-KgbYIJE1HocPtnCQOG7",
+      "insumo" : "Milho"
+    },
+    "-KgbYYEE0KYa5ZKam4Bs" : {
+      "id" : "-KgbYYEE0KYa5ZKam4Bs",
+      "insumo" : "Milho"
+    },
+    "-KgbYhNzg1nHQEdiNHLz" : {
+      "id" : "-KgbYhNzg1nHQEdiNHLz",
+      "insumo" : "Arroz"
+    },
+    "-KgbYnUo6TsmalrCSR-J" : {
+      "id" : "-KgbYnUo6TsmalrCSR-J",
+      "insumo" : "Milho"
+    },
+    "-KgbeipAL1KeS67jtbf-" : {
+      "id" : "-KgbeipAL1KeS67jtbf-",
+      "insumo" : "Arroz"
+    },
+    "-KgbelQc6te9v6RA3bpK" : {
+      "id" : "-KgbelQc6te9v6RA3bpK",
+      "insumo" : "Arroz"
+    },
+    "-Kgbg9_8gjWJdkm7pg9v" : {
+      "id" : "-Kgbg9_8gjWJdkm7pg9v",
+      "insumo" : "Milho"
+    },
+    "-KgbgBYQKbS98KAOzYh1" : {
+      "id" : "-KgbgBYQKbS98KAOzYh1",
+      "insumo" : "Milho"
+    },
+    "-KgbgrFYrcdF7A_eSFKu" : {
+      "id" : "-KgbgrFYrcdF7A_eSFKu",
+      "insumo" : "Arroz"
+    },
+    "-KgbmzBl-uDJ367JLLUT" : {
+      "id" : "-KgbmzBl-uDJ367JLLUT",
+      "insumo" : "Milho"
+    },
+    "-KgbnPvQ-lOhkIODj6Ub" : {
+      "id" : "-KgbnPvQ-lOhkIODj6Ub",
+      "insumo" : "Arroz"
+    },
+    "-Kgbvgw5ZgzedyjURoyV" : {
+      "id" : "-Kgbvgw5ZgzedyjURoyV",
+      "insumo" : "Arroz"
+    },
+    "-KgbvvmlQpH-34tCSxw8" : {
+      "id" : "-KgbvvmlQpH-34tCSxw8",
+      "insumo" : "Arroz"
+    },
+    "-Kgbvw_4xCvGbuW3dnFy" : {
+      "id" : "-Kgbvw_4xCvGbuW3dnFy",
+      "insumo" : "Milho"
+    },
+    "-KgbwOTmGfhptzOOGEY2" : {
+      "id" : "-KgbwOTmGfhptzOOGEY2",
+      "insumo" : "Arroz"
+    },
+    "-Kgc-4-tmHQPYrCPOPqE" : {
+      "id" : "-Kgc-4-tmHQPYrCPOPqE",
+      "insumo" : "Arroz"
+    },
+    "-Kgc-50N5UbP2qQO2hE3" : {
+      "id" : "-Kgc-50N5UbP2qQO2hE3",
+      "insumo" : "Milho"
+    },
+    "-Kgc-YM7VbPwBGSp9MiB" : {
+      "id" : "-Kgc-YM7VbPwBGSp9MiB",
+      "insumo" : "Arroz"
+    },
+    "-Kgd9x-UCEQLNRDokP4h" : {
+      "id" : "-Kgd9x-UCEQLNRDokP4h",
+      "insumo" : "Milho"
+    },
+    "-KgdAccr7zGvrLCLk4jY" : {
+      "id" : "-KgdAccr7zGvrLCLk4jY",
+      "insumo" : "Milho"
+    },
+    "-KgdBdp_xcC-VWrRdixF" : {
+      "id" : "-KgdBdp_xcC-VWrRdixF",
+      "insumo" : "Arroz"
+    },
+    "-KgdFp2LjoX-zCMereWD" : {
+      "id" : "-KgdFp2LjoX-zCMereWD",
+      "insumo" : "Milho"
+    },
+    "-KgfTTFonNsDg8KTWS-1" : {
+      "id" : "-KgfTTFonNsDg8KTWS-1",
+      "insumo" : "Arroz"
+    },
+    "-KgfW2KT2OKcMvklW6tF" : {
+      "id" : "-KgfW2KT2OKcMvklW6tF",
+      "insumo" : "Feijão Preto"
+    },
+    "-KgfW2rkqTmgEMwLHt55" : {
+      "id" : "-KgfW2rkqTmgEMwLHt55",
+      "insumo" : "Batata"
+    },
+    "-Kgils7nm5zMOQ5C_p9K" : {
+      "id" : "-Kgils7nm5zMOQ5C_p9K",
+      "insumo" : "Arroz"
+    },
+    "-Kgilt6hynLV_POM6MOc" : {
+      "id" : "-Kgilt6hynLV_POM6MOc",
+      "insumo" : "Arroz"
+    },
+    "-Kgj5wpTE2TMso3Y793l" : {
+      "id" : "-Kgj5wpTE2TMso3Y793l",
+      "insumo" : "Tomate"
+    },
+    "-KgjFHXg_nan9HbDXFhP" : {
+      "id" : "-KgjFHXg_nan9HbDXFhP",
+      "insumo" : "Tomate"
+    },
+    "-KgjHmo4hVFIeqQi5NoT" : {
+      "id" : "-KgjHmo4hVFIeqQi5NoT",
+      "insumo" : "Couve-flor"
+    },
+    "-KgjMEzl_ne3A4Xmb0pb" : {
+      "id" : "-KgjMEzl_ne3A4Xmb0pb",
+      "insumo" : "Tomate"
+    },
+    "-KgjMFOJywEEdDz5ZKLS" : {
+      "id" : "-KgjMFOJywEEdDz5ZKLS",
+      "insumo" : "Alface"
+    },
+    "-KgjOWYoTU2-_y0a2aqQ" : {
+      "id" : "-KgjOWYoTU2-_y0a2aqQ",
+      "insumo" : "Tomate"
+    },
+    "-KgjQRIQzA9w_N6pWiYK" : {
+      "id" : "-KgjQRIQzA9w_N6pWiYK",
+      "insumo" : "Tomate"
+    },
+    "-KgjQS1ro7hTa89IQX-N" : {
+      "id" : "-KgjQS1ro7hTa89IQX-N",
+      "insumo" : "Alface"
+    },
+    "-Kgj_0awO6ck2M0L2QD6" : {
+      "id" : "-Kgj_0awO6ck2M0L2QD6",
+      "insumo" : "Couve-flor"
+    },
+    "-Kgjgjn_45YApeWUjW7E" : {
+      "id" : "-Kgjgjn_45YApeWUjW7E",
+      "insumo" : "Tomate"
+    },
+    "-Kgjgk72gjHbSlI0DFaq" : {
+      "id" : "-Kgjgk72gjHbSlI0DFaq",
+      "insumo" : "Alface"
+    }
+  },
+  "YAEDITABLE" : true
+}
