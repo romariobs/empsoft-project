@@ -9,18 +9,12 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
-
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.GenericTypeIndicator;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import br.edu.ufcg.empsoft.adapters.FazendaAdapter;
+import br.edu.ufcg.empsoft.models.CallBack;
 import br.edu.ufcg.empsoft.models.Database;
 import br.edu.ufcg.empsoft.models.Fazenda;
 import br.edu.ufcg.empsoft.utils.FazendaList;
@@ -50,25 +44,10 @@ public class MainActivity extends AppCompatActivity {
 
         adapter = new FazendaAdapter(new ArrayList<Fazenda>(), recList, this, typeOfView);
         adapter.setFazendasList(FazendaList.fazendasList);
-        database.addListener(Database.Table.FAZENDAS, new ValueEventListener() {
+        database.addListener(new CallBack<List<Fazenda>>() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                GenericTypeIndicator<HashMap<String, Fazenda>> t =
-                        new GenericTypeIndicator<HashMap<String, Fazenda>>(){};
-                HashMap<String, Fazenda> mapeamentoFazendas = dataSnapshot.getValue(t);
-
-                List<Fazenda> fazendas = new ArrayList<Fazenda>();
-                if (mapeamentoFazendas != null) {
-                    fazendas = new ArrayList<>(mapeamentoFazendas.values());
-                }
-
-                adapter.setFazendasList(fazendas);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(getApplicationContext(), databaseError.toString(),
-                        Toast.LENGTH_SHORT).show();
+            public void onDataChange(List<Fazenda> result) {
+                adapter.setFazendasList(result);
             }
         });
     }
@@ -79,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == 25) {
             if(resultCode == Activity.RESULT_OK){
                 Fazenda result= (Fazenda) data.getSerializableExtra("novaFazenda");
-                database.append(Database.Table.FAZENDAS, result);
+                database.append(result);
                 adapter.addFazenda(result);
             }
         }

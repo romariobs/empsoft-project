@@ -16,6 +16,7 @@ import java.util.List;
 
 import br.edu.ufcg.empsoft.MainActivity;
 import br.edu.ufcg.empsoft.R;
+import br.edu.ufcg.empsoft.models.CallBack;
 import br.edu.ufcg.empsoft.models.Database;
 import br.edu.ufcg.empsoft.models.Fazenda;
 import br.edu.ufcg.empsoft.utils.FazendaList;
@@ -32,31 +33,14 @@ public class Splash extends AppCompatActivity {
         new Handler().postDelayed(new Runnable(){
             @Override
             public void run() {
-                /* Create an Intent that will start the Menu-Activity. */
-
-
-                Database.getInstance().addListener(Database.Table.FAZENDAS, new ValueEventListener() {
+                Database.getInstance().addListener(new CallBack<List<Fazenda>>() {
                     @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        GenericTypeIndicator<HashMap<String, Fazenda>> t =
-                                new GenericTypeIndicator<HashMap<String, Fazenda>>(){};
-                        HashMap<String, Fazenda> mapeamentoFazendas = dataSnapshot.getValue(t);
-
-                        List<Fazenda> fazendas = new ArrayList<Fazenda>();
-                        if (mapeamentoFazendas != null) {
-                            fazendas = new ArrayList<>(mapeamentoFazendas.values());
-                        }
-                        FazendaList.fazendasList = fazendas;
+                    public void onDataChange(List<Fazenda> result) {
+                        FazendaList.fazendasList = result;
 
                         Intent mainIntent = new Intent(Splash.this, MainActivity.class);
                         Splash.this.startActivity(mainIntent);
                         Splash.this.finish();
-
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
                     }
                 });
             }
