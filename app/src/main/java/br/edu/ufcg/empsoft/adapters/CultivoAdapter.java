@@ -7,8 +7,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -67,6 +70,8 @@ public class CultivoAdapter extends RecyclerView.Adapter {
 
         Insumo insumo = this.insumos.get(position);
 
+        viewHolder.setImage(insumo.getImage());
+
         viewHolder.nome.setText(insumo.getNome());
 
         viewHolder.cultivoMedio.setText("Em média "
@@ -93,6 +98,7 @@ public class CultivoAdapter extends RecyclerView.Adapter {
 
         private TextView nome, colheitaAgendada;
         private TextView cultivoMedio, diasCultivados;
+        private ImageView imagem;
         private Context context;
 
         public CultivoViewHolder(View itemView, Context context) {
@@ -102,7 +108,13 @@ public class CultivoAdapter extends RecyclerView.Adapter {
             cultivoMedio = (TextView) itemView.findViewById(R.id.cultivo_medio);
             colheitaAgendada = (TextView)itemView.findViewById(R.id.colheita_agendada);
             diasCultivados = (TextView)itemView.findViewById(R.id.dias_cultivados);
+            imagem = (ImageView) itemView.findViewById(R.id.cultivo_icon);
             this.context = context;
+        }
+
+        public void setImage(String url) {
+            System.out.println(url);
+            Picasso.with(context).load(url).into(imagem);
         }
 
         @Override

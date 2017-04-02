@@ -12,6 +12,7 @@ public class Insumo implements Serializable{
     private int diasCultivados;
     private Agendamento proximaColheita;
     private boolean colhaParaMim;
+    private String image;
 
     public Insumo() {
         setNome("");
@@ -21,10 +22,11 @@ public class Insumo implements Serializable{
         setColhaParaMim(false);
     }
 
-    public Insumo(String nome, int cultivoMedio, int diasCultivados) {
+    public Insumo(String nome, int cultivoMedio, int diasCultivados, String urlImagem) {
         setNome(nome);
         setCultivoMedio(cultivoMedio);
         setDiasCultivados(diasCultivados);
+        this.image = urlImagem;
     }
 
     public String getNome() {
@@ -41,6 +43,12 @@ public class Insumo implements Serializable{
 
     public void setCultivoMedio(int cultivoMedio) {
         this.cultivoMedio = cultivoMedio;
+    }
+
+    public String getImage() { return image; }
+
+    public void setImage(String urlImagem) {
+        this.image = urlImagem;
     }
 
     public int getDiasCultivados() {
