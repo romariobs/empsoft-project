@@ -87,6 +87,8 @@ public class PhotoPagerAdapter extends PagerAdapter implements PhotoAdapter {
 
     private void bind(PhotoItem item, View view) {
         ImageView imageView = (ImageView) view.findViewById(R.id.photo);
+        imageView.setAdjustViewBounds(true);
+        imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         Picasso.with(view.getContext()).load(item.getUrl()).into(imageView);
     }
 
