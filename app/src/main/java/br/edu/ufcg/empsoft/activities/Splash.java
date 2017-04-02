@@ -31,6 +31,7 @@ public class Splash extends AppCompatActivity {
                         Intent mainIntent = new Intent(Splash.this, MainActivity.class);
                         Splash.this.startActivity(mainIntent);
                         Splash.this.finish();
+                        database.removeListener(Database.Table.FAZENDAS, this.getListener());
                     }
                 });
             }
